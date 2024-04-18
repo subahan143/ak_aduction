@@ -1,8 +1,15 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react-hooks/exhaustive-deps */
 
-const Hostel = () => {
+import { useEffect } from "react";
+
+const Hostel = ({setUser}) => {
+  useEffect(() => {
+    setUser(true);
+  }, []);
   return (
   <>
-    <div className="flex h-screen w-2/2 items-center bg-slate-200 border-2 border-red-600 flex-col justify-center ml-[10rem] ">
+    <div className="flex h-screen w-2/2 items-center bg-slate-200 flex-col justify-center ml-[10rem] ">
     <div className="w-full h-28 flex items-center justify-between px-20">
 
 <h1 className="text-2xl font-extrabold">Departments</h1>

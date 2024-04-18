@@ -33,31 +33,35 @@ const Libary = lazy(() => import("./app/screens/institute/Library"));
 // Transport page import
 const Transport = lazy(() => import("./app/screens/institute/Transport"));
 // Masterpage import
+
 const Master = lazy(() => import("./app/screens/institute/Master"));
 
 
 {/* .....Dashboard home...... */}
 
-// Home studen
-const Student = lazy(()=>import("./app/screens/institute/Popup/Student"))
+// Home student
+const Student = lazy(()=>import("./app/screens/institute/Popup/Student"));
 // Home staff
-const Staff= lazy(()=>import("./app/screens/institute/Popup/Staff"))
+const Staff= lazy(()=>import("./app/screens/institute/Popup/Staff"));
 // Home Departments
-const Departments=lazy(()=>import("./app/screens/institute/Popup/Departments"))
+const Departments=lazy(()=>import("./app/screens/institute/Popup/Departments"));
 // Home Transport
-const HomeTransport= lazy(()=>import("./app/screens/institute/Popup/Transport"))
+const HomeTransport= lazy(()=>import("./app/screens/institute/Popup/Transport"));
 // Home Library
-const HomeLibrary=lazy(()=>import("./app/screens/institute/Popup/Library"))
+const HomeLibrary=lazy(()=>import("./app/screens/institute/Popup/Library"));
 // Home Access
-const Access=lazy(()=>import("./app/screens/institute/Popup/Access"))
+const Access=lazy(()=>import("./app/screens/institute/Popup/Access"));
 // Home Hostel
-const HomeHostel=lazy(()=>import("./app/screens/institute/Popup/Hostel"))
+const HomeHostel=lazy(()=>import("./app/screens/institute/Popup/Hostel"));
 // Notifications page
-const Notifications=lazy(()=>import("./app/screens/institute/Popup/Notifications"))
-
-{/* .....Dashboard adding page ...... */}
-// Add student page
-const Addingstudent=lazy(()=>import("./app/screens/institute/Adding_popus/Add_student"))
+const Notifications=lazy(()=>import("./app/screens/institute/Popup/Notifications"));
+// {....Master popup page...}
+{/* Attendance popup page */}
+const Attendance = lazy(()=> import("./app/screens/institute/Master_Popup/Attendance"));
+//  {.....Progress_Card popup page..}
+const Progress_Card = lazy (()=>import("./app/screens/institute/Master_Popup/Progress_Card"));
+// {...Export Reports popup page...}
+const Export_Reports=lazy(()=>import("./app/screens/institute/Master_Popup/Export_Reports"))
 
 const Router = () => {
   
@@ -69,12 +73,12 @@ const Router = () => {
     <BrowserRouter>
     <Suspense fallback={<Loader/>}>
     <Routes>
-    {/* <Route path="/components/Navbar" element={<Navbar/>} /> */}
+    <Route path="/components/Navbar" element={<Navbar/>} />
     <Route path="/" element={<HomePage />} />
     {/* Institute  */}
-    <Route path="/institute/register" element={<InstituteRegister />} />
+    <Route path="/institute/register" element={<InstituteRegister setUser={setUser} />} />
     {/* managements */}
-     
+    
     <Route path="/managment/register" element={<MangamentRegister />} />
     
     {/* this is home_page */}
@@ -101,40 +105,46 @@ const Router = () => {
     {/* .....Dashboard home...... */}
     
     {/* home student */}
-    <Route path='/home/student' element={<Student/>}/>
+    <Route path='/home/student' element={<Student setUser={setUser}/>}/>
     {/* home staff */}
-    <Route path="/home/staff" element={<Staff/>} />
+    <Route path="/home/staff" element={<Staff setUser={setUser}/>} />
     {/* home Departments */}
-    <Route path="/home/Departments" element={<Departments/>}/>
+    <Route path="/home/Departments" element={<Departments setUser={setUser}/>}/>
     {/* home Transport */}
-    <Route path="/home/Transport" element={<HomeTransport/>}/>
+    <Route path="/home/Transport" element={<HomeTransport setUser={setUser}/>}/>
     {/* home Library */}
-    <Route path='/home/Library' element={<HomeLibrary/>}/>
+    <Route path='/home/Library' element={<HomeLibrary setUser={setUser}/>}/>
     {/* home Access */}
-    <Route path='/home/Access' element={<Access/>}/>
-    <Route path="/home/Hostel" element={<HomeHostel/>}/>
+    <Route path='/home/Access' element={<Access setUser={setUser}/>}/>
+    {/* home Hostel */}
+    <Route path="/home/Hostel" element={<HomeHostel setUser={setUser}/>}/>
     {/* Notifications page */}
-    <Route path="/home/Notifications" element={<Notifications/>}/>
+    <Route path="/home/Notifications" element={<Notifications setUser={setUser}/>}/>
+    
+{/*....Master popup page...*/}
+    {/* Attendance popup page */}
+    <Route path="/Master/Attendance" element={<Attendance setUser={setUser}/>}/>
+  {/*Progress_Card popup page */}
+  <Route path="/Master/Progress_Card" element={<Progress_Card setUser={setUser}/>}/>
+{/*...Export Reports popup page...*/}
+<Route path="/Master/Export_Reports" element={<Export_Reports setUser={setUser}/>}/>
 
-{/* .....Dashboard adding page ...... */}
-{/* Add student page */}
-<Route path="/Adding/Add_student" element={<Addingstudent/>}/>
     </Routes>
     </Suspense>
     
     <div className="flex  bg-slate-400">
     {user ?    
-     <div className="flex border-black">
-    <Navbar />
-    </div>  :  null}
+      <div className="flex border-black">
+      <Navbar />
+      </div>  :  null}
+      
+      
+      
+      </div>
+      
+      </BrowserRouter>
+      );
+    };
     
+    export default Router;
     
-    
-    </div>
-    
-    </BrowserRouter>
-    );
-  };
-  
-  export default Router;
-  

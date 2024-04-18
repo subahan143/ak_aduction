@@ -1,9 +1,14 @@
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom"
 import Logo from "../../components/Logo"
+import { useState } from "react"
 
 
 
-const Register = () => {
+const Register = ({setUser}) => {
+useState(()=>{
+    setUser(false)
+},[])
     return (
 <>
 <section className="bg-gray-200 dark:bg-gray-900">

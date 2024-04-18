@@ -12,7 +12,7 @@ const Search = ({setUser}) => {
   <div className="w-[100%] h-[10vh] flex items-center justify-center p-10 ">
 <span className=" w-full flex items-center justify-between ">
 <h1 className="text-2xl font-bold">Search</h1>
-<span>
+<span className="gap-1 flex items-center ">
 <i className="fa-sharp text-yellow-400 font-bold text-2xl fa-solid fa-triangle-exclamation"></i>
     <select className="border-2 border-black rounded-md w-40 h-7" name="" id="">
       <option value="">--Choose--</option>

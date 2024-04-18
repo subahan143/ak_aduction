@@ -1,8 +1,14 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react/prop-types */
+import { useEffect } from "react";
 
-const Staff = () => {
+const Staff = ({setUser}) => {
+  useEffect(() => {
+    setUser(true);
+  }, []);
   return (
    <>
-     <div className="flex h-screen w-2/2 items-center bg-slate-200 border-2 border-red-600 flex-col justify-center ml-[10rem] ">
+     <div className="flex h-screen w-2/2 items-center bg-slate-200 flex-col justify-center ml-[10rem] ">
 
 
      <div className="w-full items-center h-full flex flex-col">

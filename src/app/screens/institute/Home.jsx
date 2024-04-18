@@ -38,11 +38,15 @@ const Home = ({ setUser }) => {
                   onClick={() => setShowPopup(false)}>
                   Cancel
                 </button>
-                <button
+              
+              <a href="/">
+              <button
                   className="px-4 py-2 rounded-lg border-2 border-red-600 font-bold text-red-600 hover:bg-red-600 hover:text-white"
                   onClick={handleLogout}>
                   Confirm Logout
                 </button>
+
+              </a>
               </div>
             </div>
           </div>
